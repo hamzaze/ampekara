@@ -1,0 +1,18 @@
+<div class="popup top50 left50 abs">
+    <div class="closeOverlay abs"><a href="#" class="relative">X</a></div>
+    <div class="insideContent centered">
+        <div class="infoComingSoon regularForm">
+            <div class="title">
+                <h2>Biography</h2>
+            </div>
+            <form method="post" action="php/ajaxDispatcher.php" id="frmAddEditBiography">
+                <input type="hidden" name="aEOE_id" value="<?php echo $id;?>" />
+                <input type="hidden" name="context" value="addEditBiography" />
+                <div class="fRow"><label for="" class="relative">Name</label><input type="text" class="mf-input" name="aEOE_name" value="<?php echo $rec->name;?>" required="required" /></div>
+                <div class="fRow"><label for="" class="relative">Description</label><textarea name="aEOE_description" class="mf-textarea"><?php echo $rec->description;?></textarea></div>
+                <?php echo $fileUploader;?>
+                <div class="fRow"><input type="submit" class="mf-submit" value="Save Changes" /></div>
+            </form>
+        </div>
+    </div>
+</div>

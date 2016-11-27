@@ -1,0 +1,27 @@
+<div class="middleContent paddTopBottom40 container">
+    <div id="userListTable"> 
+        <div class="title"><?php echo $siteTitle;?></div>
+        <div class="formHolder">
+            <form action="php/ajaxDispatcher.php" method="post" id="frmAddEditBasicSettings" data-action="handlewithform">
+                <div class="hidden">
+                    <input type="hidden" name="context" value="addEditBasicContent" />
+                    <input type="hidden" name="aEOE_type" value="<?php echo $section;?>" />
+                </div>
+                <div class="flexbox">
+                    <div class="regularForm">
+                        <?php
+                        if($section!=6){
+                        ?>
+                        <div class="fRow"><label for="" class="relative">Content</label><textarea name="aEOE_content" id="aEOE_content" class="mf-textarea<?php echo $isTinyMCEClass;?>"><?php echo $rec->content;?></textarea></div>
+                        <?php
+                        }
+                        ?>
+                        <?php echo $form;?>
+                    </div>
+                </div>
+                <div class="noFloat"></div>
+                <div class="fRow"><input type="submit" class="mf-submit" value="SAVE CHANGES" /></div>
+            </form>
+        </div>
+    </div>
+</div>

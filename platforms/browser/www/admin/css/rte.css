@@ -1,0 +1,26 @@
+body#tinymce{
+    font-size: 16px;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.important{
+    color: #490000;
+}
+
+.redbg{
+    background-color: #490000;
+    color: #fff;
+    padding: 20px;
+}
+
+.grayblock{
+    padding: 20px;
+    background-color: #e7e7e8;
+}
