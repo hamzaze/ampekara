@@ -415,6 +415,29 @@ DP.validateForm = function(){
 };
 
 function displayAlert(a, b){
+    myApp.addNotification({
+        additionalClass: 'errMessage1 abs',
+        message: a,
+        button: {
+            text: 'Click me',
+            color: 'yellow'
+        }
+    });
+    return false;
+    
+    
+    myApp.modal({
+   text: a,
+   title: 'Error!',
+   buttons: [ 
+      {
+         text: 'Ok', 
+         bold: true,
+         onClick: function(){ }
+      } 
+   ]
+});
+return false;
     var _fadeIn=300;
     var c="<div class='closeOverlay abs right0'><a class='relative' href=''>x</a></div><div class='errContent relative'>" + a + "</div>";
     var d=$$("<div class='errMessage1 abs' />"); 
@@ -435,6 +458,18 @@ function displayAlert(a, b){
 }
 
 function displayInfo(a, b){
+   myApp.modal({
+   text: a,
+   title: 'Information',
+   buttons: [ 
+      {
+         text: 'Ok', 
+         bold: true,
+         onClick: function(){ }
+      } 
+   ]
+});
+    return false;
     var _fadeIn=300;
     var c="<div class='closeOverlay abs right0'><a class='relative' href=''>x</a></div><div class='infoContent relative'>" + a + "</div>";
     var d=$$("<div class='errMessage1 abs' />"); 
