@@ -26,6 +26,7 @@ body .page[data-page="index"]{
 .abs.controls{
     right: 0;
     z-index: 50;
+    margin: 5px 0;
 }
 
 .top50{
@@ -160,13 +161,14 @@ body .page[data-page="index"]{
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    font-size: 1.2em;
+    font-size: 28px;
     color: #000;
     min-width: inherit;
+    margin: 3px 0;
 }
 
 .list-block input[type="text"], .list-block input[type="password"], .list-block input[type="search"], .list-block input[type="email"], .list-block input[type="tel"], .list-block input[type="url"], .list-block input[type="date"], .list-block input[type="datetime-local"], .list-block input[type="time"], .list-block input[type="number"], .list-block select, .list-block textarea{
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .list-block .input-item .item-media > img{
@@ -257,6 +259,7 @@ body .page[data-page="index"]{
 
 .page[data-page="products"] .list-block .label, .list-block .floating-label{
     color: #212121;
+    margin: 4px 0;
 }
 
 .page[data-page="products"] .list-block .label > span.text-muted{
@@ -444,7 +447,7 @@ a.button.close-picker{
 
 #frmLoginFEUser .item-input-field input[type="password"]{
     display: inline-block;
-    width: 80%;
+    width: 83%;
 }
 
 #frmLoginFEUser input.button[type="button"], #frmLoginFEUser input.button[type="submit"]{
@@ -505,5 +508,13 @@ a.button.close-picker{
     
     .list-block input[type="password"]{
         font-size: 16px;
+    }
+    
+    .page[data-page="products"] .list-block .label, .list-block .floating-label{
+        margin: 6px 0;
+    }
+    
+    .abs.controls{
+        margin: 10px 0;
     }
 }

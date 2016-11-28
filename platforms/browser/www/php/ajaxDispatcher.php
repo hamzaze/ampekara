@@ -35,6 +35,12 @@ if(isset($_POST['context'])){
             $content=$cbm->checkIsUserLoggedIn();
         break;
     
+        case 'checkForNewPageData':
+            require_once(PATH_TO_CLASS1 . 'UsersFE.php');
+            $cbm=new UsersFE();
+            $content=$cbm->checkIsUserLoggedIn();
+        break;
+    
         case 'logoutFEUser':
             //Validate post vars
             require_once(PATH_TO_CLASS1 . 'UsersFE.php');

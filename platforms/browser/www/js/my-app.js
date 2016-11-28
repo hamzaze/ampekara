@@ -24,6 +24,7 @@ var mainView = myApp.addView('.view-main', {
 
 var isAjaxLoaded=false;  
 var pathToAjaxDispatcher="http://e-solucije.com/am/php/ajaxDispatcher.php";
+var seeProductList=false;
 
 
 // Callbacks to run specific code for specific pages, for example for About page:
@@ -315,11 +316,47 @@ DP.validateForm = function(){
                                                             break;
                                                         }
                                                     }else if(whatForm=="checkIsUserLoggedIn"){
+                                                        var whatCurrentView=myApp.getCurrentView();
+                                                        var activePageName=whatCurrentView['activePage']['name'];
+                                                        console.log(activePageName);
+                                                        if(activePageName=='store'){
+                                                            seeProductList=false;
+                                                        }else if(activePageName=='products'){
+                                                            if(data['roles']=='3'){
+                                                                seeProductList=true;
+                                                            }else if(data['roles']=='2'){
+                                                                seeProductList=false;
+                                                            }
+                                                        }
+                                                        if(!seeProductList){
                                                         switch(data['roles']){
                                                             case '3':
                                                             mainView.router.load({
                                                                 template: Template7.templates.listTemplate,
-                                                                context: data
+                                                                context: data,
+                                                                animatePages: false,
+                                                                reload: false
+                                                            });  
+                                                            break;
+                                                            case '2':
+                                                            mainView.router.load({
+                                                                template: Template7.templates.listProducts,
+                                                                context: data,
+                                                                animatePages: false,
+                                                                reload: false
+                                                            });    
+                                                            break;
+                                                        }
+                                                    }
+                                                        checkIsUserLoggedIn();
+                                                    }else if(whatForm=="checkForNewPageData"){
+                                                        switch(data['roles']){
+                                                            case '3':
+                                                            mainView.router.load({
+                                                                template: Template7.templates.listTemplate,
+                                                                context: data,
+                                                                animatePages: false,
+                                                                reload: false
                                                             });    
                                                             break;
                                                             case '2':
@@ -329,6 +366,11 @@ DP.validateForm = function(){
                                                             });    
                                                             break;
                                                         }
+                                                        /*
+                                                        window.setTimeout(function(){
+                                                            refreshAllPagesData();
+                                                        }, 5000);
+                                                        */
                                                         
                                                     }else if(whatForm=="frmProductOrders"){
                                                         resetForm($$("#"+whatForm));
@@ -400,15 +442,15 @@ function displayInfo(a, b){
     //d.html(c).fadeIn("fast", function(){$(this).delay(4000).fadeOut("fast", function(){$(this).remove();});});
     d.html(c);
     d.fadeIn(_fadeIn, function(){
-        $$("div.closeOverlay a, a", this).click(function(e){
+        $$(this).click(function(e){
             e.preventDefault();
             $$("div.overlayDisabler", b).remove();
-            d.fadeOut(_fadeIn, function(){
+            $$(this).fadeOut(_fadeIn, function(){
                 $$(this).remove();
             });
         });
     });
-    $$(document).mouseup(function(){
+    $$(document).on("mouseup", function(){
         $$("div.overlayDisabler", b).remove();
             d.remove();
     });
@@ -426,6 +468,14 @@ function handleWithForms(form){
 function checkIsUserLoggedIn(){
     window.setTimeout(function(){
         return $$("#checkIsUserLoggedIn").checkFields();
+    return false;
+    }, 5000);
+    
+}
+
+function refreshAllPagesData(){
+    window.setTimeout(function(){
+        return $$("#checkForNewPageData").checkFields();
     return false;
     }, 100);
     
@@ -534,6 +584,10 @@ $$(document).on("submit", "form[data-action='handlewithform']", function(e){
    e.preventDefault(); 
    return $$(this).checkFields();
    return false;
+});
+
+$$(document).on("click", "[data-action='seeproductlist']", function(e){
+   seeProductList=true;
 });
 
 //Check is user already loggedin

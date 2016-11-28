@@ -46,6 +46,7 @@ class ProductsFE extends Products{
                         $val->qty=0;
                     }
                 }
+                $val->name .=' - ' . rand(0,1000);
             }
         }
         return $rec;

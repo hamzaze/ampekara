@@ -3,8 +3,10 @@
   <head>
    <!-- Required meta tags-->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <!--    <meta name="apple-mobile-web-app-status-bar-style" content="black">-->
     <title>Pekara AM</title>
     <!-- Path to Framework7 Library CSS-->
@@ -38,6 +40,9 @@
 -->
  <form method="post" action="http://e-solucije.com/am/php/ajaxDispatcher.php" id="checkIsUserLoggedIn" data-action="handlewithform">
         <div class="hidden"><input type="hidden" name="context" value="checkIsUserLoggedIn" /></div>
+ </form>
+ <form method="post" action="http://e-solucije.com/am/php/ajaxDispatcher.php" id="checkForNewPageData" data-action="handlewithform">
+        <div class="hidden"><input type="hidden" name="context" value="checkForNewPageData" /></div>
  </form>
     <!-- Views-->
     <div class="views">
@@ -91,7 +96,7 @@
               <div id="customerList" class="list-block">
                 <ul>
                     {{#each results}}
-                        <li><a href="#" data-template='productsTemplate' data-context='{{stringify this}}' data-id="{{id}}" class="item-link item-content">
+                        <li><a href="#" data-action="seeproductlist" data-template='productsTemplate' data-context='{{stringify this}}' data-id="{{id}}" class="item-link item-content">
                         <div class="item-inner"> 
                           <div class="item-title">{{name}}</div>
                         </div></a></li>
@@ -128,7 +133,7 @@
           <div class="item-content">
             <div class="item-media">{{articleid}}</div>
             <div class="item-inner">
-                <div class="abs controls top50">
+                <div class="abs controls">
                     <div class="qty-current" data-id="{{id}}">{{qtycurrent}}</div>
                     <div class="qty-input" data-id="{{id}}">{{qty}}</div>
                     <div class="submit-input hidden"><input type="submit" value="+" class="button button-fill color-green button-round"/></div>
@@ -137,7 +142,7 @@
     onchange="try{setCustomValidity('')}catch(e){}" autocomplete="off" oninput="wrapInlineSubmit(this)" />
                     </div>
                 </div>
-                <div class="item-title top50 label">{{name}}<br /><span class="text-muted">{{subtitle}}</span></div>
+                <div class="item-title label">{{name}}<br /><span class="text-muted">{{subtitle}}</span></div>
               
             </div>
           </div>
@@ -199,7 +204,7 @@
           <div class="item-content">
             <div class="item-media">{{articleid}}</div>
             <div class="item-inner">
-                <div class="abs controls top50">
+                <div class="abs controls">
                     <div class="qty-current" data-id="{{id}}">{{qtycurrent}}</div>
                     <div class="submit-input hidden"><input type="submit" value="+" class="button button-fill color-green button-round"/></div>
                     <div class="item-input">
@@ -207,7 +212,7 @@
     onchange="try{setCustomValidity('')}catch(e){}" autocomplete="off" oninput="wrapInlineSubmit(this)" />
                     </div>
                 </div>
-                <div class="item-title top50 label">{{name}}<br /><span class="text-muted">{{subtitle}}</span></div>
+                <div class="item-title label">{{name}}<br /><span class="text-muted">{{subtitle}}</span></div>
               
             </div>
           </div>

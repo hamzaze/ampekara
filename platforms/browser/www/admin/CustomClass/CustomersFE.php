@@ -16,6 +16,7 @@ class CustomersFE extends Customers{
             $setting=new Settings();
             
             foreach(@$rec as $key => $val){
+                $val->name .=' - ' . rand(0,1000);
                 if(isset($_SESSION['whatUserOnDetails']) && $setting->checkIsUserLogedAndToken($_SESSION['whatUserOnDetails']->id)===true){
                     switch($_SESSION['whatUserOnDetails']->roles){
                         default:
