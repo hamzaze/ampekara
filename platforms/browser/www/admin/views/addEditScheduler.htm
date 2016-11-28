@@ -1,0 +1,19 @@
+<div class="popup top50 left50 abs">
+    <div class="closeOverlay abs"><a href="#" class="relative">X</a></div>
+    <div class="insideContent centered">
+        <div class="infoComingSoon regularForm">
+            <div class="title">
+                <h2>Add a Date</h2>
+            </div>
+            <form method="post" action="php/ajaxDispatcher.php" id="frmAddEditScheduler">
+                <input type="hidden" name="aEOE_id" value="<?php echo $id;?>" />
+                <input type="hidden" name="context" value="addEditScheduler" />
+                <div class="fRow row centered"><div class="col-md-8 col-sm-8 col-md-offset-2 flexbox">
+                    <div class="flex1">
+                        <input type="text" class="mf-input datepicker" name="aEOE_edate" value="<?php echo $rec->edate;?>" required="required" />
+                    </div><input type="submit" class="mf-submit" value="Save Changes" />
+                </div></div>
+            </form>
+        </div>
+    </div>
+</div>

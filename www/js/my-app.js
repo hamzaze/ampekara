@@ -419,8 +419,8 @@ function displayAlert(a, b){
         additionalClass: 'errMessage1 abs',
         message: a,
         button: {
-            text: 'Click me',
-            color: 'yellow'
+            text: 'X',
+            color: '#404040'
         }
     });
     return false;

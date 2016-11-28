@@ -1,0 +1,22 @@
+<div class="popup top50 left50 abs">
+    <div class="closeOverlay abs"><a href="#" class="relative">X</a></div>
+    <div class="insideContent centered">
+        <div class="infoComingSoon regularForm">
+            <div class="title">
+                <h2>Kupac</h2>
+            </div>
+            <form method="post" action="php/ajaxDispatcher.php" id="frmAddEditCustomer">
+                <input type="hidden" name="aEOE_id" value="<?php echo $id;?>" />
+                <input type="hidden" name="context" value="addEditCustomer" />
+                <div class="fRow"><label for="" class="relative">Naziv</label><input type="text" class="mf-input" name="aEOE_name" value="<?php echo $rec->name;?>" required="required" /></div>
+                <div class="fRow row"><div class="col-md-4 col-sm-4"><label for="" class="relative">Vrsta Prodavnice</label><?php echo $etypeSB;?></div><div class="noFloat"></div></div>
+                <div class="fRow"><label for="" class="relative">Adresa</label><input type="text" class="mf-input" name="aEOE_address" value="<?php echo $rec->address;?>" /></div>
+                <div class="fRow"><label for="" class="relative">Napomena</label><textarea name="aEOE_comment" class="mf-textarea limitMaxChar" maxlength="1000"><?php echo $rec->comment;?></textarea>
+                <div class="noFloat"></div>
+                <p class="text-muted"><span rel="aEOE_comment"><?php echo (1000-strlen($rec->comment));?></span> karaktera preostalo</p>
+                </div>
+                <div class="fRow"><input type="submit" class="mf-submit btn-blue" value="Snimi" /></div>
+            </form>
+        </div>
+    </div>
+</div>

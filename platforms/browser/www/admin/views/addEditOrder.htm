@@ -1,0 +1,35 @@
+<div class="popup fullwidth top50 left50 abs">
+    <div class="closeOverlay abs"><a href="#" class="relative">X</a></div>
+    <div class="insideContent centered">
+        <div class="infoComingSoon regularForm">
+            <div class="title">
+                <h2>Otpremnica <?php echo $rec->id . '/' . date('Y', strtotime($rec->crdate));?></h2>
+            </div>
+                <div class="fRow row">
+                    <div class="col-xs-6">
+                        <label for="" class="relative">Datum</label>
+                        <div><?php echo $date;?> u <?php echo $time;?></div>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="" class="relative">Vozač</label>
+                        <div><?php echo $rec->username;?></div>
+                    </div>
+                    <div class="noFloat"></div>
+                </div>
+                <div class="fRow">
+                    <label for="" class="relative">Prodavnica</label>
+                    <div><?php echo $rec->customername;?></div>
+                </div>
+                <div class="fRow row">
+                    <div class="col-xs-6">
+                        <label for="" class="relative">Iznos</label>
+                        <div><?php echo $rec->amount . ' ' . CURRENCYSIGN;?></div>
+                    </div>
+                    <div class="noFloat"></div>
+                </div>
+                <h4 class="text-left">Lista proizvoda</h4>
+                <?php echo $productList;?>
+                <div class="fRow"><button type="button" class="btn btn-info" data-action="hideoverlay">ZATVORI</button></div>
+        </div>
+    </div>
+</div>

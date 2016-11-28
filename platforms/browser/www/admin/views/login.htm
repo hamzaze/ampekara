@@ -1,0 +1,19 @@
+<body id="body">
+<div class="errMessage"><?php echo $errMessage;?></div> 
+	<div id="main">
+    	<header id="logo" class="abs homelogo left50 top50 centered">
+            AM Pekare
+            <div class="loginBlock">
+            	<div class="insideContent">
+                <form method="post" action="php/ajaxDispatcher.php" id="frmAdminLogin">
+                <div class="hidden"><input type="hidden" name="context" value="checkAdminLogin" /></div>
+                    <div class="fRow">
+                        <input type="password" class="mf-input" name="adminPassword" placeholder="Password..." />
+                    </div>
+                    <div class="fRow centered"><input type="submit" value="Login" class="mf-submit btn btn-primary upper" /></div>
+                </form>
+                </div>
+            </div>
+        </header>
+       </div>
+</body>

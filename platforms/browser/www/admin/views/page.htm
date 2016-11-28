@@ -1,0 +1,20 @@
+<body id="body1" class="page-id-<?php echo $section;?> page-pid-<?php echo $parentsection;?>">
+<div class="errMessage"></div> 
+	<div id="main">
+    	<div class="middleContent flexbox">
+           <header class="centered"> 
+               <div class="wrapper">
+                   <div id="logo" class="logo"><a href="<?php echo DOCUMENT_ROOT;?>/admin">AM Pekare</a></div>
+                   <?php echo $menu;?>
+               </div>
+           <div class="logout">
+               <a href="?logout=1“">Logout</a>
+           </div>
+           </header>
+           <div id="content" class="content flex1" data-anchor="content"><?php echo $content;?></div>
+           <footer>
+               
+           </footer>
+       </div>
+	</div>
+</body>
